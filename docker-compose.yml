@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  openproject:
+    image: openproject/openproject:14
+    environment:
+      OPENPROJECT_SECRET_KEY_BASE: oWJR3sLIQl0u5Cn3zOqGit8o55EX2xTODjWmkTtzFlOmQ-8PwuWOx4MfLlII4wuD
+      OPENPROJECT_HOST__NAME: localhost:10090
+      OPENPROJECT_HTTPS: 'false'
+      OPENPROJECT_DEFAULT__LANGUAGE: en
+    ports:
+      - "127.0.0.1:10090:80"
+    volumes:
+      - openproject_pgdata:/var/openproject/pgdata
+      - openproject_assets:/var/openproject/assets
+
+volumes:
+  openproject_pgdata:
+  openproject_assets:
